@@ -1,0 +1,202 @@
+% Configuracion del formato segun documento de GUIA PARA LA ELABORACIÓN DE TRABAJOS DE GRADO de la cs.umss.edu.bo
+
+\documentclass[11pt,twoside,letterpaper]{book}
+% tipo de letra Helvetica, algo parecida a Arial
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% castellano
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{etoolbox}
+\usepackage{tocloft} 
+%\usepackage{hyperref}
+%\usepackage[bookmarksnumbered]{hyperref}
+\usepackage[bookmarksnumbered, bookmarksopen=true]{hyperref}
+\hypersetup{colorlinks,
+            linkcolor=blue,
+            linktoc=page}
+
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{microtype}
+%para codigo fuente
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+%Bibliografia en el indice
+%\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+%para bookmarks
+
+%para numerar subsubsections
+\setcounter{secnumdepth}{3}
+%\setcounter{tocdepth}{3}
+%menos profundidad en el indice
+\setcounter{tocdepth}{1}
+
+%----------------------------------------
+\usepackage{bookmark}
+\bookmarksetup{numbered}
+
+\usepackage{titlesec} %reformatting the chapter headings
+%\titleformat{\chapter}[block]
+%  {\normalfont\LARGE\bfseries\centering}
+%  {CHAPTER\thechapter: }{0em}{}
+
+\makeatletter
+\bookmarksetup{%
+  addtohook={%
+    \ifnum\toclevel@chapter=\bookmarkget{level}\relax
+      \renewcommand*{\numberline}[1]{Cap\'itulo #1: }%
+    \fi
+  },
+}
+\makeatother
+%----------------------------------------
+
+\renewcommand{\lstlistingname}{Listado}
+
+\lstset{ 
+    basicstyle=\footnotesize\ttfamily,
+    language=C++
+}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+
+%margenes
+
+%segun guia
+\usepackage[top=2cm, bottom=2cm, inner=3cm, outer=2cm]{geometry}
+
+%segun CD de carrera
+%\usepackage[top=2.5cm, bottom=2.5cm, inner=3.5cm, outer=2.5cm]{geometry}
+
+% quita la sangria a los parrafos (sin sangria se ve feo :-)
+%\setlength{\parindent}{0cm}
+
+% Para tener cabecera y pie de página con un estilo personalizado
+\usepackage{fancyhdr}
+
+% Espacio parrafos
+\setlength{\parskip}{6pt}
+
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+
+\usepackage{adjustbox}
+
+% Todas las imágenes están en el directorio tp-img:
+\newcommand{\imgdir}{includes}
+\graphicspath{{\imgdir/}}
+
+%\usepackage[numbered]{bookmark}
+
+
+
+\begin{document}
+%
+% caratula
+%
+%para poner bookmark del CD de requisitos
+\bookmark[page=1,level=-2]{INICIO}
+
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+
+% caratula --------------------------------------------------------------
+\newcommand{\umsslogo}{%
+      \adjustbox{valign=t}{\includegraphics[scale=0.04]{umss}}%
+}
+\newcommand{\fcytlogo}{%
+      \adjustbox{valign=t}{\includegraphics[scale=0.1]{fcyt}}%
+}
+
+% Carátula:
+\begin{titlepage}
+\thispagestyle{empty}
+
+\begin{tabular}[t]{c p{10cm} c}
+    \umsslogo & 
+    \begin{center}
+    \large{\textsc{Universidad Mayor de San Sim\'on }} \\
+    \large{\textsc{Facultad de Ciencias y Tecnolog\'ia }} \\
+    \large{\textsc{Carrera de Ingenier\'ia de Sistemas}} 
+    \end{center}
+    &
+    \fcytlogo \\
+\end{tabular}
+\vfill
+
+\begin{center}
+\huge{\textsc{Desarrollo de un sistema ...}}
+\end{center}
+\vspace{0.5cm}
+
+%\begin{flushright}
+\begin{center}
+\textsc{
+Proyecto de grado, presentado para optar\\
+al Diploma Académico de Licenciatura \\
+en Ingeniería de Sistemas.
+}
+%\end{flushright}
+\end{center}
+
+\vfill
+\begin{tabbing}
+\hspace{2cm}\=\+
+	\textsc{Presentado por:} Ronald Alejandro Oquendo Muñoz	\\
+    \\
+	\textsc{Tutor:} Lic. Fernando ...	\\
+    \\
+	%\textsc{Cochabamba - Bolivia}\\
+    \\
+\end{tabbing}
+
+\begin{center}
+    \textsc{Cochabamba - Bolivia}\\
+    \textsc{Octubre, 2015}
+\end{center}   
+
+\vfill
+
+%\hrule
+%\vspace{0.2cm}
+%\noindent\small{Trabajo de Grado \hfill}
+
+\end{titlepage}
+
+% caratula --------------------------------------------------------------
+
+\input{002-Dedicatoria-Dedicatoria}
+\input{003-Agradecimientos-Agradecimientos}
+% Las páginas empiezan a contar desde aqui
+%\setcounter{page}{1}
+\input{004-FichaResumen-FichaResumen}
+\input{005-Indice01-IndiceGeneral}
+\input{006-Indice02-IndiceDeFiguras}
+\input{007-Indice03-IndiceDeTablas}
+\input{008-Cap01-Introduccion}
+\input{009-Cap02-VisionArtificial}
+\input{010-Cap03-Herramientas}
+\input{011-Cap04-Metodologia.tex}
+
+\input{018-Cap05-Conclusiones}
+
+\input{019-Bibliografia-Bibliografia}
+\input{020-Anexos-Anexos}
+
+
+
+
+\bookmark[page=13,level=-1]{Indice de cuadros}
+
+\end{document}
+
+

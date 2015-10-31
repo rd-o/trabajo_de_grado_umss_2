@@ -1,0 +1,74 @@
+\chapter{Metodología}
+
+\section{Pila del producto (product backlog)}
+%\section{Pila del producto}
+En el presente proyecto se utilizará la metodología de desarrollo de software SCRUM \cite{scrum_book}.
+
+La siguiente tabla es una lista priorizada de requisitos (features) para ser implementadas en el proyecto. Cada una de estas caracteristicas se escribieron de acuerdo a los objetivos específicos, que fueron definidos en el Capitulo \ref{cap:intro}.
+
+\def\arraystretch{2}
+\newcommand{\pbesquiv}{Como robot debo ser capaz de esquivar los obstáculos que se presentan en el camino del robot, con el objetivo de hacerlo de forma autónoma. } 
+
+\newcommand{\pbplathard}{Como estudiante debo implementar una plataforma de hardware que sirva de base para el robot, con el objetivo de tener un robot operativo.}
+\newcommand{\pbrecon}{Como robot quiero ser capaz de reconocer objetos existentes en un fotograma, con el objetivo de tener estos datos para calcular su posición en el plano.}
+
+\newcommand{\pbprof}{Como robot quiero saber a que profundidad en el plano se encuentran los obstáculos, con el objetivo de poder esquivarlos sabiendo su posición.}
+
+\newcommand{\pbdocum}{Como estudiante debo escribir la documentación del proyecto de grado, con el objetivo de tenerlo completado.}
+
+\newcommand{\pbincli}{Como robot quiero saber mi inclinación actual, con el objetivo de saber si estoy en peligro de volcarme.}
+
+\begin{longtable}{|c|p{12.5cm}|c|} %p{1.8cm}|p{1.9cm}
+\hline
+\textbf{N°} & \textbf{Características (features)} & \textbf{Prioridad} \\ \hline
+\hline
+%Se diseñará un robot de tal manera que sea totalmente inalámbrico.
+%listo
+
+%Se implementará un sistema de visión artificial que sea capaz de reconocer obstáculos existentes en un plano.
+1 & \pbrecon & Alta  \\ \hline
+%investigar opencv blobs
+%investigar filtros
+%Obtener coordenadas de objetos reconocidos
+
+
+%Se implementará un algoritmo para detectar la profundidad de los obstáculos en un fotograma.
+
+2 & \pbprof & Alta \\ \hline
+%Obtener distancia aproximada de los objetos reconocidos
+
+
+
+%Se implementará un sistema de navegación que permita al robot moverse de forma autónoma a un destino establecido.
+%3 & Como robot debo ser capaz de llegar a un destino establecido de forma autónoma, con el objetivo de cumplir las instrucciones del operador. & Alta \\ \hline
+
+3 & \pbesquiv & Alta \\ \hline
+
+4 & \pbplathard & Alta \\ \hline
+
+5 & \pbdocum  & Media \\ \hline
+
+
+%Se implementará un sistema de comunicaciones entre el robot y el operador. 
+%7 & Como robot quiero ser capaz de comunicarme con mi operador, con el objetivo de poder recibir coordenadas para saber mi destino. & Media  \\ \hline
+
+% Se desarrollará un sistema de posicionamiento, el cual detectara la posición actual del robot.
+%8 & Como robot quiero saber mi posición actual, con el objetivo de poder enviar al robot cuando se sepan las coordenadas. & Media \\ \hline
+
+%Se implementará un sistema de protección que alarme al robot en caso de estar peligrosamente inclinado.
+6 & \pbincli  & Baja \\ \hline
+% Habilitar giroscopio a raspberry pi
+% Implementar sistema de proteccion, deacuerdo con las limitaciones del robot
+
+%Se escribirá documentación técnica y de usuario del software a entregar.
+%10 & Como usuario técnico quiero saber como configurar e instalar el sistema, con el objetivo de tener un sistema completamente operativo  & Baja \\ \hline
+
+%11 & Como usuario final quiero saber como operar el robot, con el objetivo de aprender a operar el robot. & Baja \\ \hline
+\end{longtable}
+
+\section{Estimación de historias de usuario}
+La estimación de esfuerzo de las historias de usuario se realizaran utilizando la técnica de Planning Poker. Se utilizara el rango de 1, 2, 3, 5, 8, 13.
+
+\section{Sprint A}
+\input{012-Cap04-SprintA}
+
